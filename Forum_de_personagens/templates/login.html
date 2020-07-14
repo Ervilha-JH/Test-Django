@@ -1,0 +1,36 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="sidenav">
+         <div class="login-main-text">
+            <h2>Forum RPG<br> Logue em sua conta</h2>
+            <p>Logue ou faça seu registro aqui.</p>
+         </div>
+      </div>
+      <div class="main">
+         <div class="col-md-6 col-sm-12">
+            <div class="login-form">
+               <form action ="submit", method="POST">{% csrf_token %}
+                  <div class="form-group">
+                     <label>Nome de usuario</label>
+                     <input type="username", class="form-control", id="username", name="username", placeholder="User Name">
+                  </div>
+                  <div class="form-group">
+                     <label>Senha</label>
+                     <input type="password" class="form-control" id="password", name="password", placeholder="Password">
+                  </div>
+                  <div>
+                    {% for message in messages%}
+                    <div class="alert alert-danger">
+                        <strong>Error!</strong> {{message}}.
+                    </div>
+                    {% endfor %}
+                    <button type="submit" class="btn btn-black">Login</button>
+                    <button type="submit" class="btn btn-secondary">Register</button>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
